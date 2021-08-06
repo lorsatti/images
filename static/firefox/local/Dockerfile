@@ -29,7 +29,7 @@ RUN \
                 rm -Rf flashplayer \
             ) \
         ) && \
-        dpkg -i firefox.deb && \
+        dpkg -i firefox.deb || apt-get -f install \
         ( [ "$PACKAGE" != "firefox" ] && ln /usr/bin/$PACKAGE /usr/bin/firefox ) || true && \
         rm firefox.deb && \
         firefox --version && \
